@@ -56,14 +56,26 @@
         font-size: 12px;
         border-radius: 5px;
       }
+      .price-container {
+        text-align: right;
+      }
       .price {
         font-size: 18px;
         font-weight: bold;
+        display: block;
       }
       .old-price {
         font-size: 14px;
         text-decoration: line-through;
         color: gray;
+        display: block;
+        margin-top: 2px;
+      }
+      .standard-price {
+        font-size: 12px;
+        color: gray;
+        display: block;
+        margin-top: 2px;
       }
       .options {
         display: none;
@@ -72,9 +84,8 @@
       .offer-box.selected .options {
         display: block;
       }
-      .options select {
-        padding: 5px;
-        margin-right: 10px;
+      .options-container {
+        margin-top: 10px;
       }
       .add-to-cart {
         background: #ff4081;
@@ -87,6 +98,15 @@
         cursor: pointer;
         margin-top: 15px;
       }
+      .total-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+      }
+      .free-delivery {
+        color: #ff4081;
+      }
     </style>
   </head>
   <body>
@@ -94,99 +114,74 @@
       <h2>YAY! It's BOGO</h2>
 
       <div class="offer-box" onclick="selectOffer(this)">
-        <input type="radio" name="offer" value="1" />
-        <strong>1 Unit</strong> <span class="discount">10% Off</span>
-        <span class="price">$10.00 USD</span>
-        <span class="old-price">$24.00 USD</span>
-        <div class="options">
-          <p>Size & Colour</p>
-          <label>#1</label>
-          <select>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-          </select>
-          <select>
-            <option>Black</option>
-            <option>Blue</option>
-            <option>Red</option>
-          </select>
+        <div>
+          <input type="radio" name="offer" value="1" />
+          <strong>1 Unit</strong> <span class="discount">10% Off</span>
+          <br />
+          <span class="standard-price">Standard Price</span>
+        </div>
+        <div class="price-container">
+          <span class="price">$10.00 USD</span>
+          <span class="old-price">$24.00 USD</span>
         </div>
       </div>
 
       <div class="offer-box" onclick="selectOffer(this)">
         <span class="most-popular">MOST POPULAR</span>
-        <input type="radio" name="offer" value="2" />
-        <strong>2 Unit</strong> <span class="discount">20% Off</span>
-        <span class="price">$18.00 USD</span>
-        <span class="old-price">$24.00 USD</span>
-        <div class="options">
-          <p>Size & Colour</p>
-          <label>#1</label>
-          <select>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-          </select>
-          <select>
-            <option>Black</option>
-            <option>Blue</option>
-            <option>Red</option>
-          </select>
-          <br />
-          <label>#2</label>
-          <select>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-          </select>
-          <select>
-            <option>Colour</option>
-            <option>Black</option>
-            <option>Blue</option>
-            <option>Red</option>
-          </select>
+        <div>
+          <input type="radio" name="offer" value="2" />
+          <strong>2 Unit</strong> <span class="discount">20% Off</span>
+        </div>
+        <div class="price-container">
+          <span class="price">$18.00 USD</span>
+          <span class="old-price">$24.00 USD</span>
+        </div>
+        <div class="options-container">
+          <div class="options">
+            <p>Size & Colour</p>
+            <label>#1</label>
+            <select>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+            </select>
+            <select>
+              <option>Black</option>
+              <option>Blue</option>
+              <option>Red</option>
+            </select>
+            <br />
+            <label>#2</label>
+            <select>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+            </select>
+            <select>
+              <option>Colour</option>
+              <option>Black</option>
+              <option>Blue</option>
+              <option>Red</option>
+            </select>
+          </div>
         </div>
       </div>
 
       <div class="offer-box" onclick="selectOffer(this)">
-        <input type="radio" name="offer" value="3" />
-        <strong>3 Unit</strong> <span class="discount">30% Off</span>
-        <span class="price">$24.00 USD</span>
-        <span class="old-price">$24.00 USD</span>
-        <div class="options">
-          <p>Size & Colour</p>
-          <label>#1</label>
-          <select>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-          </select>
-          <select>
-            <option>Black</option>
-            <option>Blue</option>
-            <option>Red</option>
-          </select>
-          <br />
-
-          <label>#2</label>
-
-          <select>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-          </select>
-          <select>
-            <option>Colour</option>
-            <option>Black</option>
-            <option>Blue</option>
-            <option>Red</option>
-          </select>
+        <div>
+          <input type="radio" name="offer" value="3" />
+          <strong>3 Unit</strong> <span class="discount">30% Off</span>
+        </div>
+        <div class="price-container">
+          <span class="price">$24.00 USD</span>
+          <span class="old-price">$24.00 USD</span>
         </div>
       </div>
 
-      <p style="color: #ff4081; font-weight: bold">Free Delivery</p>
-      <p>Total : <span id="total-price">$18.00 USD</span></p>
+      <div class="total-container">
+        <span class="free-delivery">Free Delivery</span>
+        <span>Total: <span id="total-price">$18.00 USD</span></span>
+      </div>
 
       <button class="add-to-cart">+ Add to Cart</button>
     </div>
@@ -195,11 +190,9 @@
       function selectOffer(element) {
         document.querySelectorAll(".offer-box").forEach((box) => {
           box.classList.remove("selected");
-          box.querySelector(".options").style.display = "none";
         });
         element.classList.add("selected");
         element.querySelector("input").checked = true;
-        element.querySelector(".options").style.display = "block";
       }
     </script>
   </body>
